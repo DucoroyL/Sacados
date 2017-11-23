@@ -13,10 +13,11 @@
 class RechercheLocale {	
 	public : 
 	    Sacados & sac;
+	    Solution & solution;
 	    int nbEval;
 	    
-		RechercheLocale(Sacados & _sc) : sac(_sc), nbEval(_nbEval) { } ;
-		virtual void run(Solution &) = 0;
+		RechercheLocale(Sacados & _sc, Solution & _solution) : sac(_sc), solution(_solution), nbEval(_nbEval) { } ;
+		virtual void run() = 0;
 };
 
 

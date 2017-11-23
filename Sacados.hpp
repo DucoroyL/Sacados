@@ -20,6 +20,7 @@ class Sacados{
 	public : 
 		Sacados(const char* name);
 		void calculBeta();
+		int getN();
 		double aleatoireSolution(int nbRepet);
 		void fonctionEval(Solution & solutionAEvaluer);
 		double marcheAleatoire(int nbEval);

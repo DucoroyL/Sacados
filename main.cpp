@@ -14,9 +14,10 @@ int main(int argc, char ** argv){
         return -1;
     }
     srand (atoi(argv[3]));
-    //srand (time(NULL));
-
     Sacados sac(argv[1]);
+    Solution solutionInit (sac.getN());
+    RechercheLocale = new RechercheAleatoire(sac);
+    
     int nbEvals =atoi(argv[2]);
     //vector<bool> v={false,false,true,true,false};
     //sac.calculBeta();

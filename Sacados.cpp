@@ -31,6 +31,9 @@ Sacados::Sacados(const char* argName){
      lire_fichier.close();
 }
 
+int Sacados::getN(){
+	return n;
+}
 void Sacados::calculBeta(){
 	for (int i = 0; i < n; i++)
 	{

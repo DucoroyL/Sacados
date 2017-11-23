@@ -4,7 +4,7 @@
 class RechercheAleatoire :  public RechercheLocale {	
 	public :
 		RechercheAleatoire(Sacados & _sc) : RechercheLocale(_sc) ;
-		virtual void run(Solution &);
+		virtual void run();
 };
 
 

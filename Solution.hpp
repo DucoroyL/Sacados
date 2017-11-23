@@ -24,6 +24,11 @@ class Solution{
 			fitness=0;
 		}
 		
+		void reset() {
+			for (auto element : solutionX)
+				element = 0;
+		}
+		
 		void print() {
 			for (auto element : solutionX)
 				std::cout<<element;
