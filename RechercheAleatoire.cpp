@@ -10,7 +10,7 @@ void RechercheAleatoire::run(){
 		double solutionEval = fonctionEval(sac);
 		
 		if (solutionEval > solution.fitness)
-			solution.fitness = solutionEval;
+			solution.fitness = solutionEval; 
 	}
 }
 //~ double Sacados::aleatoireSolution(int nbEval){
