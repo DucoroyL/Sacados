@@ -13,16 +13,19 @@ void MarcheAleatoire::run() {
     }
 }
 
-//~ std::vector<bool> substit(n);
-//~ std::vector<bool> solutionInit(n);
-//~ double evaluationVoisins=0;
-//~ solutionInitiale(solutionInit);
-//~
-//~ substit=solutionInit;
-//~
-//~ for (int i=0; i<nbEval; i++){
-//~ int aleaIndex = rand() % n;
-//~ substit[aleaIndex]=!substit[aleaIndex];
-//~ evaluationVoisins= fonctionEval(substit);
-//~ }
-//~ return evaluationVoisins;
+void MarcheAleatoire::ecrireFichier(const char *name) {
+    std::ofstream ecrire_fichier(name);
+    if(ecrire_fichier){
+        for ( auto elem : solution.getSolution() ) {
+            ecrire_fichier << elem;
+        }
+        ecrire_fichier << std::endl;
+    }else{
+        std::cerr <<"Impossible d'ouvrir le fichier ! "<<std::endl;
+    }
+    ecrire_fichier.close();
+}
+
+void MarcheAleatoire::enteteFichier() {
+
+}

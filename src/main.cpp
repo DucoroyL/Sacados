@@ -18,13 +18,16 @@ int main(int argc, char ** argv){
 
     int nbEvals =atoi(argv[2]);
     srand (atoi(argv[3]));
+
     Sacados sac(argv[1]);
-    Solution solutionInit (sac.getN());
+    for (int essai = 0; essai < 10 ; ++essai) {
+        Solution solutionInit (sac.getN());
+        RechercheLocale *r_Locale = new HillBest(sac, solutionInit, nbEvals);
+        sac.calculBeta();
+        r_Locale->run();
+        cout<<essai<< " : ";
+        cout<<sac.fonctionEval(solutionInit)<<endl;
 
-    RechercheLocale *r_Locale = new HillBest(sac, solutionInit, nbEvals);
-    sac.calculBeta();
-    r_Locale->run();
-    cout<<endl<<"Eval : "<<sac.fonctionEval(solutionInit)<<endl;
-
+    }
     return 0;
 }

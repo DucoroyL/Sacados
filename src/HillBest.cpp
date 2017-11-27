@@ -27,3 +27,17 @@ void HillBest::run() {
     }
     solution.setFitness(evaluationCourante);
 }
+
+void HillBest::ecrireFichier(const char *name) {
+    std::ofstream ecrire_fichier(name);
+    if(ecrire_fichier){
+        ecrire_fichier << rangBestSolution << solution.getFitness() << std::endl;
+    }else{
+        std::cerr <<"Impossible d'ouvrir le fichier ! "<<std::endl;
+    }
+    ecrire_fichier.close();
+}
+
+void HillBest::enteteFichier() {
+
+}

@@ -14,17 +14,20 @@ void RechercheAleatoire::run(){
 	}
     solution.setFitness(meilleureSolution);
 }
-//~ double Sacados::aleatoireSolution(int nbEval){
-	 //~ double meilleureSolution =0;
-	  //~ std::vector<bool> x(n);
-	  //~ for(int iEval = 0; iEval< nbEval; iEval++){
-		  //~ for(int i=0; i<n; i++){
-			 //~ int aleaIndex = rand() % 2;
-			//~ x[i]=aleaIndex;
-		  //~ }
-		 //~ double solutionEval = fonctionEval(x);
-		 //~ if ( solutionEval > meilleureSolution)
-			//~ meilleureSolution = solutionEval;
-	  //~ }
-	  //~ return meilleureSolution;
-//~ }
+
+void RechercheAleatoire::ecrireFichier(const char *name) {
+    std::ofstream ecrire_fichier(name);
+    if(ecrire_fichier){
+        ecrire_fichier << nbEval << solution.getFitness();
+    }else{
+        std::cerr <<"Impossible d'ouvrir le fichier ! "<<std::endl;
+    }
+    ecrire_fichier.close();
+}
+
+void RechercheAleatoire::enteteFichier() {
+    std::ofstream fichier("stat_recherche_alea.csv");
+
+        fichier << "nbEval" << "fitness" << std::endl;
+        fichier.close();
+}
