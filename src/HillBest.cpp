@@ -8,7 +8,7 @@ void HillBest::run() {
         double evaluationMax = 0;
         double evaluationVoisins = 0;
 
-        for (int indexSolution = 0; indexSolution < solution.getSizeSolution(); indexSolution++) {
+        for (unsigned indexSolution = 0; indexSolution < solution.getSizeSolution(); indexSolution++) {
             solution.setSolution(indexSolution, !solution.getValSolution(indexSolution));
             evaluationVoisins = sac.fonctionEval(solution);
             if ( evaluationVoisins > evaluationMax){
@@ -29,15 +29,11 @@ void HillBest::run() {
 }
 
 void HillBest::ecrireFichier(const char *name) {
-    std::ofstream ecrire_fichier(name);
+    std::ofstream ecrire_fichier(name,std::ios::app);
     if(ecrire_fichier){
-        ecrire_fichier << rangBestSolution << solution.getFitness() << std::endl;
+        ecrire_fichier << nbEval << " " << rangBestSolution << " " << solution.getFitness() << std::endl;
     }else{
         std::cerr <<"Impossible d'ouvrir le fichier ! "<<std::endl;
     }
     ecrire_fichier.close();
-}
-
-void HillBest::enteteFichier() {
-
 }

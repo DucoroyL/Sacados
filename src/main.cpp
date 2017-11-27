@@ -5,6 +5,7 @@
 #include "HillBest.hpp"
 #include "HillWorst.hpp"
 #include "HillFirst.hpp"
+#include "RecuitSimule.hpp"
 
 
 using namespace std;
@@ -20,14 +21,11 @@ int main(int argc, char ** argv){
     srand (atoi(argv[3]));
 
     Sacados sac(argv[1]);
-    for (int essai = 0; essai < 10 ; ++essai) {
-        Solution solutionInit (sac.getN());
-        RechercheLocale *r_Locale = new HillBest(sac, solutionInit, nbEvals);
-        sac.calculBeta();
-        r_Locale->run();
-        cout<<essai<< " : ";
-        cout<<sac.fonctionEval(solutionInit)<<endl;
 
-    }
+	Solution solutionInit (sac.getN());
+	RechercheLocale *r_Locale = new RecuitSimule(sac, solutionInit, nbEvals);
+	sac.calculBeta();
+	r_Locale->run();
+	cout<< " Solution : " << solutionInit.getFitness() << endl;
     return 0;
 }

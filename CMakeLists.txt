@@ -6,5 +6,5 @@ find_package( PkgConfig REQUIRED)
 pkg_check_modules ( PKG REQUIRED libglog cpputest)
 include_directories ( ${PKG_INCLUDE_DIRS} )
 
-add_executable(sacados src/main.cpp src/Sacados.cpp src/RechercheAleatoire.cpp src/RechercheLocale.hpp src/MarcheAleatoire.cpp src/HillBest.cpp src/HillFirst.cpp src/HillWorst.cpp)
+add_executable(sacados src/main.cpp src/Sacados.cpp src/RechercheAleatoire.cpp src/RechercheLocale.hpp src/MarcheAleatoire.cpp src/HillBest.cpp src/HillFirst.cpp src/HillWorst.cpp src//RecuitSimule.cpp)
 target_link_libraries( sacados ${PKG_LIBRARIES} )

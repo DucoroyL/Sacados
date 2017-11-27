@@ -7,9 +7,8 @@ class HillBest : public RechercheLocale{
     private:
         int rangBestSolution;
     public:
-        HillBest(Sacados & _sc, Solution & _solution, int _nbEval) : rangBestSolution(0), RechercheLocale(_sc, _solution, _nbEval) {};
+        HillBest(Sacados & _sc, Solution & _solution, int _nbEval) : RechercheLocale(_sc, _solution, _nbEval), rangBestSolution(0) {};
         virtual void run();
         virtual void ecrireFichier(const char* name);
-        virtual void enteteFichier();
 };
 #endif

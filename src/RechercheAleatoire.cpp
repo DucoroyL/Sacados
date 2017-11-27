@@ -16,18 +16,11 @@ void RechercheAleatoire::run(){
 }
 
 void RechercheAleatoire::ecrireFichier(const char *name) {
-    std::ofstream ecrire_fichier(name);
+    std::ofstream ecrire_fichier(name, std::ios::app);
     if(ecrire_fichier){
         ecrire_fichier << nbEval << solution.getFitness();
     }else{
         std::cerr <<"Impossible d'ouvrir le fichier ! "<<std::endl;
     }
     ecrire_fichier.close();
-}
-
-void RechercheAleatoire::enteteFichier() {
-    std::ofstream fichier("stat_recherche_alea.csv");
-
-        fichier << "nbEval" << "fitness" << std::endl;
-        fichier.close();
 }
