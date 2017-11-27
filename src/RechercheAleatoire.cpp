@@ -1,17 +1,18 @@
 #include "RechercheAleatoire.hpp"
 
 void RechercheAleatoire::run(){
+    double meilleureSolution = 0;
+
 	for (int iEval = 0; iEval < nbEval; iEval++){
-		for (int index = 0, index < solutionX.size(); index++){
+		for (unsigned index = 0; index < solution.getSolution().size(); index++){
 			int aleaIndex = rand() % 2;
-			solutionX[i] = aleaIndex;
+			solution.setSolution(index, aleaIndex);
 		}
-		
-		double solutionEval = fonctionEval(sac);
-		
-		if (solutionEval > solution.fitness)
-			solution.fitness = solutionEval; 
+		solution.setFitness(sac.fonctionEval(solution));
+		if ( solution.getFitness() > meilleureSolution)
+			meilleureSolution = solution.getFitness();
 	}
+    solution.setFitness(meilleureSolution);
 }
 //~ double Sacados::aleatoireSolution(int nbEval){
 	 //~ double meilleureSolution =0;

@@ -10,13 +10,13 @@
 #include "Solution.hpp"
 
 
-class RechercheLocale {	
+class RechercheLocale {
 	public : 
 	    Sacados & sac;
 	    Solution & solution;
 	    int nbEval;
 	    
-		RechercheLocale(Sacados & _sc, Solution & _solution) : sac(_sc), solution(_solution), nbEval(_nbEval) { } ;
+		RechercheLocale(Sacados & _sc, Solution & _solution, int _nbEval) : sac(_sc), solution(_solution), nbEval(_nbEval) { } ;
 		virtual void run() = 0;
 };
 
