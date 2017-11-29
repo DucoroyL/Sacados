@@ -18,14 +18,16 @@ int main(int argc, char ** argv){
     }
 
     int nbEvals =atoi(argv[2]);
-    srand (atoi(argv[3]));
+    
 
     Sacados sac(argv[1]);
+		srand (atoi(argv[3]));
+		Solution solutionInit (sac.getN());
+		RechercheLocale *r_Locale = new RecuitSimule(sac, solutionInit, nbEvals);
+		sac.calculBeta();
+		r_Locale->run();
+		r_Locale->ecrireFichier("stat_Recuit_Simule.csv");
 
-	Solution solutionInit (sac.getN());
-	RechercheLocale *r_Locale = new RecuitSimule(sac, solutionInit, nbEvals);
-	sac.calculBeta();
-	r_Locale->run();
-	cout<< " Solution : " << solutionInit.getFitness() << endl;
+	
     return 0;
 }

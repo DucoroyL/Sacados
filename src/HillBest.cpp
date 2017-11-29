@@ -2,29 +2,33 @@
 
 void HillBest::run() {
     double evaluationCourante = sac.fonctionEval(solution);
+    nbEvalCourante++;
     int iBest = 0;
 
-    for (int index = 0; index < nbEval; index++) {
+    do {
         double evaluationMax = 0;
         double evaluationVoisins = 0;
 
-        for (unsigned indexSolution = 0; indexSolution < solution.getSizeSolution(); indexSolution++) {
-            solution.setSolution(indexSolution, !solution.getValSolution(indexSolution));
-            evaluationVoisins = sac.fonctionEval(solution);
-            if ( evaluationVoisins > evaluationMax){
-                evaluationMax = evaluationVoisins;
-                iBest = indexSolution;
-            }
-            solution.setSolution(indexSolution, !solution.getValSolution(indexSolution));
-        }
-        if ( evaluationCourante < evaluationMax){
-            evaluationCourante = evaluationMax;
-            solution.setSolution(iBest, !solution.getValSolution(iBest));
-        } else {
-            rangBestSolution = index;
-            break;
-        }
-    }
+			for (unsigned indexSolution = 0; indexSolution < solution.getSizeSolution(); indexSolution++) {
+				solution.setSolution(indexSolution, !solution.getValSolution(indexSolution));
+				evaluationVoisins = sac.fonctionEval(solution);
+				nbEvalCourante++;
+				
+				if ( evaluationVoisins > evaluationMax){
+					evaluationMax = evaluationVoisins;
+					iBest = indexSolution;
+				}
+				solution.setSolution(indexSolution, !solution.getValSolution(indexSolution));
+			}
+			if ( evaluationCourante < evaluationMax){
+				evaluationCourante = evaluationMax;
+				solution.setSolution(iBest, !solution.getValSolution(iBest));
+			} else {
+				rangBestSolution = nbEvalCourante;
+				break;
+			}
+	   }
+	   while (nbEvalCourante < nbEval);
     solution.setFitness(evaluationCourante);
 }
 

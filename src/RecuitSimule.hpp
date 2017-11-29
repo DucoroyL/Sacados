@@ -10,7 +10,7 @@ class RecuitSimule : public RechercheLocale{
 		double alpha;
 		int palier;
     public:
-        RecuitSimule(Sacados & _sc, Solution & _solution, int _nbEval) : RechercheLocale(_sc, _solution, _nbEval), tempInit(10), alpha(0.95), palier(1) {};
+        RecuitSimule(Sacados & _sc, Solution & _solution, int _nbEval) : RechercheLocale(_sc, _solution, _nbEval), tempInit(1000), alpha(0.95), palier(500) {};
         virtual void run();
         virtual void ecrireFichier(const char* name);
 };

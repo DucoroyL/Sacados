@@ -11,6 +11,9 @@ void IterLocalSearch::run(){
 			// solution = solution voisine
 		//Fin Si
 	}
+	do{
+		
+	}while(nbEvalCourante < nbEval);
 }
 
 void IterLocalSearch::ecrireFichier(const char* name){

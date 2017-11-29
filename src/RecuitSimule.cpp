@@ -3,26 +3,27 @@
 void RecuitSimule::run(){
 		double fit;
 		double delta;
-		
-	for (int index = 0; index < nbEval; index++ ) {
+
+	do{
 		int aleaIndex = rand() % solution.getSizeSolution();
 		fit = sac.fonctionEval(solution);
+		nbEvalCourante++;
 	
 		solution.setSolution(aleaIndex, !solution.getValSolution(aleaIndex));
 		delta = sac.fonctionEval(solution) - fit;
-
+		nbEvalCourante++;
 		if ( delta <= 0 ){
 			solution.setSolution(aleaIndex, !solution.getValSolution(aleaIndex));
-			double u = rand () % 2;
-			
+			double u = ((double)rand () / RAND_MAX);
+
 			if ( u < exp (delta/tempInit) ) {
 				solution.setSolution(aleaIndex, !solution.getValSolution(aleaIndex));
 			}
 		}
-		if ( index%palier == 0 ){
+		if ( nbEvalCourante%palier == 0 ){
 			tempInit*= alpha;
 		}
-	}
+	} while (nbEvalCourante < nbEval);
 	solution.setFitness(sac.fonctionEval(solution));
 }
 
