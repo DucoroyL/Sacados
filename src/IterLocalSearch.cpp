@@ -2,7 +2,7 @@
 
 void IterLocalSearch::run(){
 	//HillFirst
-	
+	Solu
 	for (int index = 0; index < nbEval; index++ ) {
 		// Solution voisine = perturbation (solutionInitiale)  : changer des bits avec taux de probabilité sur chaque bit
 		//Hill first sur la solution voisine
